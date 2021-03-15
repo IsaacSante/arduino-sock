@@ -1,0 +1,17 @@
+{
+  "name": "unitysocket",
+  "version": "1.0.0",
+  "description": "im tired and jiyoon is making me work ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "this is a test",
+    "start": "node clientArduino.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serialport": "^9.0.7",
+    "ws": "^7.4.4"
+  }
+}
