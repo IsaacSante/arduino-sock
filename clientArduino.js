@@ -1,14 +1,37 @@
 import WebSocket from 'ws'
 const serverAddress = "wss://webscoket-unity.herokuapp.com/"
-const arduinoData = "This my sample arduino data from Local"
+
+var up = true;
+var value = 0;
+var increment = 10;
+var ceiling = 100;
+
+function PerformCalc() {
+  if (up == true && value <= ceiling) {
+    value += increment
+
+    if (value == ceiling) {
+      up = false;
+    }
+  } else {
+      up = false
+      value -= increment;
+
+      if (value == 0) {
+        up = true;
+      }
+  }
+
+}
+setInterval(PerformCalc, 1000);
+
 
 const ws = new WebSocket(serverAddress);
 
 ws.on('open', function() {
     setInterval(() => {
-        ws.send('client 1' + arduinoData)
+        ws.send(value)
       }, 3000)
-    //   ws.send('client 1:' + ' ' + arduinoData)
 })
 
 ws.on('message', function(msg) {
