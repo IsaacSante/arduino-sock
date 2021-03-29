@@ -2,8 +2,8 @@ import WebSocket from 'ws'
 const serverAddress = "wss://webscoket-unity.herokuapp.com/"
 
 var up = true;
-var value = 0;
-var increment = 10;
+var value = 60;
+var increment = 1;
 var ceiling = 100;
 
 function PerformCalc() {
@@ -17,7 +17,7 @@ function PerformCalc() {
       up = false
       value -= increment;
 
-      if (value == 0) {
+      if (value == 60) {
         up = true;
       }
   }
@@ -31,7 +31,7 @@ const ws = new WebSocket(serverAddress);
 ws.on('open', function() {
     setInterval(() => {
         ws.send(value)
-      }, 3000)
+      }, 1000)
 })
 
 ws.on('message', function(msg) {
