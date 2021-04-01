@@ -5,6 +5,7 @@ var up = true;
 var value = 60;
 var increment = 1;
 var ceiling = 100;
+var c1, c2 ; 
 
 function PerformCalc() {
   if (up == true && value <= ceiling) {
@@ -22,15 +23,18 @@ function PerformCalc() {
       }
   }
 
+c1 = 'Client One' + value
+c2 = 'Client Two' + (value + 10)
+
 }
 setInterval(PerformCalc, 1000);
-
 
 const ws = new WebSocket(serverAddress);
 
 ws.on('open', function() {
     setInterval(() => {
-        ws.send(value)
+        ws.send(c1)
+        ws.send(c2)
       }, 1000)
 })
 
