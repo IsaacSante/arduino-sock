@@ -56,6 +56,8 @@ void loop() {
        Serial.print("Client One");//change to "Client TWO" if client 2
        Serial.println(myBPM);     
     }
+      delay(20);               
+
 }
 
   
